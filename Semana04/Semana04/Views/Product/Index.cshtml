@@ -1,0 +1,38 @@
+﻿@using Semana04.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@model List<Product>
+
+<h2>Index</h2>
+<br />
+@Html.ActionLink("Create new","Create","Product")
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    <!--el arroba + "nombre-atributo" permite agregar atributos de html ej: class-->
+                    @Html.ActionLink("Edit", "Edit", "Product", new { Id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Details", "Details", "Product", new { Id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "Delete", "Product", new { Id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

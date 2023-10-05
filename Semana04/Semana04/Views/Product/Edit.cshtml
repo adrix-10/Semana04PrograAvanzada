@@ -1,0 +1,24 @@
+﻿@using Semana04.Models
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@model Product
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+    </div>
+    <br />
+    <input type="submit" value="Save" />
+}
